@@ -1,0 +1,11 @@
+rootProject.name = 'accelengine'
+
+include 'frontend'
+include 'backend'
+include 'backend:accelengine-commons'
+include 'backend:accelengine-modules:module-installer'
+include 'backend:accelengine-modules:module-dashboard'
+include 'backend:accelengine-modules:module-crud'
+include 'backend:accelengine-modules:module-start'
+//#AE
+

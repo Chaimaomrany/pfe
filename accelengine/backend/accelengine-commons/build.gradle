@@ -1,0 +1,81 @@
+plugins {
+	id 'java-library'
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+    archivesBaseName = 'accelengine-commons'
+    project.version = '1.0.0'
+}
+
+dependencies {
+	// Spring
+	api 'org.springframework.boot:spring-boot-starter-data-jpa'
+	api 'org.springframework.boot:spring-boot-starter-jersey'
+	api 'org.springframework.boot:spring-boot-starter-web'
+	api 'org.springframework.boot:spring-boot-starter-tomcat'
+	api 'org.springframework.boot:spring-boot-starter-security'
+	api 'org.springframework.boot:spring-boot-starter-websocket'
+	api 'org.springframework.boot:spring-boot-starter-quartz'
+	api 'org.springframework.boot:spring-boot-actuator'
+	api 'org.springframework.boot:spring-boot-actuator-autoconfigure'
+
+	//api 'org.springframework.boot:spring-boot-devtools'
+
+	// Tools
+	api 'io.springfox:springfox-swagger2:2.9.2'
+	api 'io.springfox:springfox-swagger-ui:2.9.2'
+
+	// Lib
+	api 'javax.validation:validation-api'
+    api 'org.slf4j:slf4j-api'
+	api 'org.reflections:reflections:0.9.12'
+	api 'org.javassist:javassist:3.27.0-GA'
+	api 'org.aeonbits.owner:owner:1.0.10'
+	api 'org.mapstruct:mapstruct-jdk8:1.3.0.Final'
+	api 'io.jsonwebtoken:jjwt-api:0.10.7'
+	api 'io.jsonwebtoken:jjwt-impl:0.10.7'
+	api 'io.jsonwebtoken:jjwt-jackson:0.10.7'
+	api 'org.zalando:problem-spring-web:0.25.0'
+	api 'com.opencsv:opencsv:5.0'
+	api 'org.apache.commons:commons-lang3:3.11'
+    api 'com.konghq:unirest-java:3.13.3'
+    api 'com.googlecode.json-simple:json-simple:1.1.1'
+    api 'com.google.code.gson:gson:2.8.9'
+    api 'jdom:jdom:1.1'
+	// rsql
+   	api 'cz.jirutka.rsql:rsql-parser:2.0.0'
+   	// Jasper Reports
+	api('net.sf.jasperreports:jasperreports:6.13.0')
+	{
+		exclude group: 'com.lowagie', module: 'itext'
+    }
+    api 'com.sun.mail:javax.mail:1.6.2'
+    api 'io.micrometer:micrometer-core'
+    api 'net.sf.trove4j:trove4j:3.0.3'
+
+    api fileTree(dir: 'libs', include: '*.jar')
+
+    api 'org.junit.jupiter:junit-jupiter-api'
+    api 'org.junit.jupiter:junit-jupiter-engine'
+    api 'org.junit.jupiter:junit-jupiter-params'
+    api 'org.junit.platform:junit-platform-launcher'
+    api 'org.junit.platform:junit-platform-runner'
+
+    // Liquibase
+    api 'org.liquibase:liquibase-core'
+
+    api 'com.esotericsoftware:kryo:5.3.0'
+    api 'org.apache.commons:commons-jexl3:3.2.1'
+
+    // Decryption
+    api 'tn.accelengine:decryption:1.0.0'
+
+    // Excel
+    api 'org.apache.poi:poi:5.2.3'
+    api 'org.apache.poi:poi-ooxml:5.2.3'
+}
