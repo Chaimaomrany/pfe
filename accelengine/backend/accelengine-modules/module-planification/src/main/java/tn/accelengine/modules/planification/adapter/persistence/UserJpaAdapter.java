@@ -28,7 +28,8 @@ public class UserJpaAdapter extends AECrudJpaAdapterDTO<User, IUserDTO, UserJpaR
 
 	@Override
 	public List<User> findAllByNodeAndRole(Long idNode, Long idRole) {
-		return this.jpaRepositoryDTO.findAllByNodeIdAndRoleId(idNode, idRole);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
