@@ -1,0 +1,142 @@
+<div class="grid">
+    <div [ngClass]="getMasterDetailClass('MASTER')">
+        <p-card>
+            <ng-template pTemplate="header">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <app-menu-bookmark></app-menu-bookmark>
+                        <h4>
+                            <strong>{{"user.shift_master" | translate }}</strong>
+                        </h4>
+                    </div>
+                    <div class="p-toolbar-group-right">
+                        <app-menu-master
+                            [criteria]="criteria"
+                            (criteriaClick)="onClickCriteria()"
+                            (addClick)="onAddClick()"
+                            (reloadClick)="onClickReload()"
+                        ></app-menu-master>
+                    </div>
+                </p-toolbar>
+            </ng-template>
+            <div class="main-body p-fluid">
+                <app-data-table
+                    [columns]="columns"
+                    [value]="datas"
+                    [selectedData]="selectedData"
+                    (onSelectRow)="onSelectRow($event)"
+                    (onDblclickRow)="onDblclickRow($event)"
+                    [paginator]="pagination && isMasterExpanded"
+                    (onPageChanged)="onPageChanged($event)"
+                    [rows]="appConfig.rows"
+                    [rowsPerPageOptions]="appConfig.rowsPerPageOptions"
+                >
+                </app-data-table>
+            </div>
+        </p-card>
+    </div>
+    <div
+        [ngClass]="getMasterDetailClass('DETAIL')"
+        *ngIf="!isMasterExpanded"
+        [@slideInOut]
+    >
+        <p-card>
+            <ng-template pTemplate="header">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <h4>
+                            <i class="fa fa-edit pr-2"></i>
+                            <strong
+                                >{{"user.shift_details" | translate}} {{ selectedData?.name }}</strong
+                            >
+                        </h4>
+                    </div>
+                    <div class="p-toolbar-group-right">
+                        <app-menu-detail
+                            [types]="'e,d,c'"
+                            [isEditDisabled]="isEdit"
+                            [isDeleteDisabled]="!canDeleteCopy"
+                            [isCopyDisabled]="!canDeleteCopy"
+                            (editClick)="onEditClick()"
+                            (deleteClick)="onDeleteClick()"
+                            (copyClick)="onCopyClick()"
+                            (closeClick)="onFormCloseClick()"
+                            (maximizeClick)="onFormMaximizeClick()"
+                        >
+                        </app-menu-detail>
+                    </div>
+                </p-toolbar>
+            </ng-template>
+            <div class="main-body p-fluid">
+                <form [formGroup]="formGroup" autocomplete="off">
+                    <app-input-form
+                        [formGroup]="formGroup"
+                        [name]="'name'"
+                        [label]="'user.label_name'"
+                        [value]="f.name"
+                        [isSubmitted]="isSubmitted"
+                        [isDisabled]="!isEdit"
+                    >
+                    </app-input-form>
+                    <!-- <app-date-form
+                        [formGroup]="formGroup"
+                        [name]="'startDateWorkingHours'"
+                        [label]="'Date debut'"
+                        [value]="f.startDateWorkingHours"
+                        [isSubmitted]="isSubmitted"
+                        [isDisabled]="!isEdit"
+                        (onChange)="onValueChangeDate($event)"
+                    >
+                    </app-date-form> -->
+
+                    <!-- <app-number-form
+                        [formGroup]="formGroup"
+                        [name]="'dateOvertime'"
+                        [label]="'Nombre d`heures supplémentaires'"
+                        [value]="f.dateOvertime"
+                        [isSubmitted]="isSubmitted"
+                        [isDisabled]="!isEdit"
+                        [prefix]="'Overtime '"
+                        [suffix]="'/H'"
+                        [mode]="'decimal'"
+                    >
+                    </app-number-form> -->
+
+                    <app-input-date-time
+                        [formGroup]="formGroup"
+                        [name]="'startTimeWork'"
+                        [label]="'user.label_start_time'"
+                        [value]="f.startTimeWork"
+                        [isSubmitted]="isSubmitted"
+                        [isDisabled]="!isEdit"
+                        [timeOnly]="true"
+                        [hourFormat]="24"
+                    >
+                    </app-input-date-time>
+                    <app-input-date-time
+                        [formGroup]="formGroup"
+                        [name]="'endTimeWork'"
+                        [label]="'user.label_end_time'"
+                        [value]="f.endTimeWork"
+                        [isSubmitted]="isSubmitted"
+                        [isDisabled]="!isEdit"
+                        [timeOnly]="true"
+                        [hourFormat]="24"
+                    >
+                    </app-input-date-time>
+                    <!-- <app-multiselect-form
+                        [formGroup]="formGroup"
+                        [name]="'users'"
+                        [value]="f.users"
+                        [values]="users"
+                        [displayField]="'account.profile.fullname'"
+                        [label]="'List des users'"
+                        [isSubmitted]="isSubmitted"
+                        [isDisabled]="!isEdit"
+                    >
+                    </app-multiselect-form> -->
+                </form>
+            </div>
+        </p-card>
+    </div>
+</div>

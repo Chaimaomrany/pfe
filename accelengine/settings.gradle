@@ -7,5 +7,6 @@ include 'backend:accelengine-modules:module-installer'
 include 'backend:accelengine-modules:module-dashboard'
 include 'backend:accelengine-modules:module-crud'
 include 'backend:accelengine-modules:module-start'
+include 'backend:accelengine-modules:module-planification'
 //#AE
 

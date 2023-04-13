@@ -150,7 +150,7 @@ dependencies {
     implementation 'tn.accelengine:module-workflow:' + workflowVersion + ':plain@jar'
     implementation 'tn.accelengine:module-dynamic-form:' + dynamicFormVersion
     implementation project(':backend:accelengine-modules:module-start')
-    
+    implementation project(':backend:accelengine-modules:module-planification')
     // Libs
     implementation 'org.postgresql:postgresql:42.2.8'
 }
