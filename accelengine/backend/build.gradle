@@ -153,6 +153,7 @@ dependencies {
     implementation project(':backend:accelengine-modules:module-planification')
     // Libs
     implementation 'org.postgresql:postgresql:42.2.8'
+   
 }
 
 bootRun {

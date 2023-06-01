@@ -1,5 +1,6 @@
 <div class="grid">
     <div [ngClass]="getMasterDetailClass('MASTER')">
+        
         <p-card>
             <ng-template pTemplate="header">
                 <p-toolbar>
@@ -158,32 +159,8 @@
                                 [isDisabled]="!isEdit"
                             >
                             </app-dictionary-select>
-                            <app-tree-select-form
-                                [formGroup]="formGroup"
-                                [name]="'nodes'"
-                                [placeholder]="'user.label_node'"
-                                [label]="'user.label_node'"
-                                [values]="trees"
-                                [value]="f.nodes"
-                                [selectionMode]="'checkbox'"
-                                [isSubmitted]="isSubmitted"
-                                [isDisabled]="!isEdit"
-                            >
-                            </app-tree-select-form>
-                            <app-multiselect-form
-                                [formGroup]="formGroup"
-                                [name]="'printers'"
-                                [label]="'Printers'"
-                                [placeholder]="'Printers'"
-                                [value]="f.printers"
-                                [dataKey]="''"
-                                [values]="printers"
-                                [displayField]="'name'"
-                                [returnValue]=""
-                                [isSubmitted]="isSubmitted"
-                                [isDisabled]="!isEdit"
-                            >
-                            </app-multiselect-form>
+                           
+                           
                             <app-input-form
                                 [formGroup]="
                                     formGroup.get('account').get('contact')
@@ -201,7 +178,7 @@
                                 [isDisabled]="!isEdit"
                             >
                             </app-input-form>
-                            <ng-container *ngIf="displayAccount">
+                            
                                 <app-input-form
                                     [formGroup]="formGroup.get('account')"
                                     [name]="'email'"
@@ -243,8 +220,8 @@
                                     [isDisabled]="!isEdit"
                                 >
                                 </app-input-form>
-                            </ng-container>
-                            <ng-container *ngIf="displayChief">
+                            
+                           
                                 <app-select-form
                                     [formGroup]="formGroup"
                                     [name]="'chief'"
@@ -260,10 +237,50 @@
                                     [isDisabled]="!isEdit"
                                 >
                                 </app-select-form>
-                            </ng-container>
+                            
+                        </p-tabPanel>
+                        <p-tabPanel header="Childs">
+                            <p-toolbar>
+                                <div class="p-toolbar-group-left">
+                                    <h4>
+                                        <i class="fa fa-align-justify pr-2"></i>
+                                        <strong>Liste des childs</strong>
+                                    </h4>
+                                </div>
+                                <div class="p-toolbar-group-right">
+                                    <app-menu-crud
+                                        [types]="'a,e,d'"
+                                        [isAddDisabled]="!isEdit"
+                                        [isEditDisabled]="!canDeleteCopyChild"
+                                        [isDeleteDisabled]="!canDeleteCopyChild"
+                                        (addClick)="onAddChildClick($event)"
+                                        (editClick)="onEditChildClick($event)"
+                                        (deleteClick)="
+                                            onDeleteChildClick($event)
+                                        "
+                                    >
+                                    </app-menu-crud>
+                                </div>
+                            </p-toolbar>
+                            <div class="main-child-body">
+                                <app-data-table
+                                    [stateKey]="'father-master-detail-taskss'"
+                                    [columns]="columnsChild"
+                                    [value]="selectedData.taskss"
+                                    [isDisabled]="!isEdit"
+                                    [selectedData]="selectedChildData"
+                                    [export]="false"
+                                    (onSelectRow)="onSelectChildRow($event)"
+                                    (onDblclickRow)="onDblclickChildRow($event)"
+                                    (onButtonClickEvent)="
+                                        onButtonClickEvent($event)
+                                    "
+                                    (onSortChanged)="onSortChanged($event)"
+                                ></app-data-table>
+                            </div>
                         </p-tabPanel>
 
-                        <p-tabPanel header="{{'user.panel_ability' |translate }}">
+                     <p-tabPanel header="{{'user.panel_ability' |translate }}">
                             <p-toolbar>
                                 <div class="p-toolbar-group-left">
                                     <h4>
@@ -275,12 +292,18 @@
                             </p-toolbar>
                             <app-selectable-data-table
                                 [columns]="columnsAbilities"
-                                [value]="valuesAbilities"
+                                [value]="abilities"
                                 [(selectedData)]="selectedData.abilities"
+                                (onSelectRow)="onSelectChildRow($event)"
+                            (onDblclickRow)="onDblclickChildRow($event)"
                                 [isDisabled]="!isEdit"
                             >
                             </app-selectable-data-table>
-                        </p-tabPanel>
+
+
+                            
+
+                        </p-tabPanel> 
                     </p-tabView>
                 </form>
             </div>

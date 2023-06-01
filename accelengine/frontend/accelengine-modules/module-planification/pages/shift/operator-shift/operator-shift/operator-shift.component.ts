@@ -5,7 +5,7 @@ import { MsgService } from "@app/accelengine-core/services/msg.service";
 
 // Components
 import { CriteriaComponent } from "@app/accelengine-shared/components/criteria/criteria.component";
-import { HybrideComponent } from "accelengine-lib";
+import { AECriteriaField, HybrideComponent } from "accelengine-lib";
 
 // Models
 
@@ -50,24 +50,24 @@ export class OperatorShiftComponent extends HybrideComponent<OperatorShift> impl
 
         // UI Customized DataTable
         this.columns = Column.fromObjects([
-            { field: "shift.name", header: "user.label_name", filter: true },
-            { field: "startDatePeriod", header: "user.label_start_period", filter: true, type: ColumnType.DATETIME, format: "DD/MM/YYYY" },
-            { field: "endDatePeriod", header: "user.label_end_period", filter: true, type: ColumnType.DATETIME, format: "DD/MM/YYYY" },
-            //  { field: 'users', header: 'users', filter: true},
+            { field: "shift.name", header: "equipe", filter: true },
+            { field: "startDatePeriod", header: "debutdeperiode", filter: true, type: ColumnType.DATETIME, format: "DD/MM/YYYY" },
+            { field: "endDatePeriod", header: "findeperiode", filter: true, type: ColumnType.DATETIME, format: "DD/MM/YYYY" },
+              //{ field: 'users', header: 'users', filter: true},
         ]);
 
         this.pagination = true;
         this.criteria = true;
-        this.criterias = AECriteria.fromObjects([
-            { field: "shift", header: "user.label_name", value: "", type: AECriteriaType.LIST },
-            { field: "startDatePeriod", header: "user.label_start_period", value: "", type: AECriteriaType.DATE },
-            { field: "endDatePeriod", header: "user.label_end_period", value: "", type: AECriteriaType.DATE },
-            // { field: 'users', header: 'User', value: '', type: AECriteriaType.LIST }
+        this.criterias = AECriteriaField.fromObjects([
+            { field: "shift", header: "equipe", value: "", type: AECriteriaType.LIST },
+            { field: "startDatePeriod", header: "debutdeperiode", value: "", type: AECriteriaType.DATE },
+            { field: "endDatePeriod", header: "findeperiode", value: "", type: AECriteriaType.DATE },
+             { field: 'users', header: 'User', value: '', type: AECriteriaType.LIST }
         ]);
 
         this.columnsOperatorShift = Column.fromObjects([
             { field: "account.profile.fullname", header: "user.label_fullname" },
-            { field: "abilities", header: "user.label_abilities", type: ColumnType.LIST, fieldArray: "label" },
+            { field: "abilities.name", header: "user.label_abilities", type: ColumnType.LIST, fieldArray: "label" },
         ]);
 
         // UI Customized Form Validation

@@ -4,7 +4,7 @@ import { compareDate } from '@app/accelengine-core/helpers/validators/date.valid
 
 // Components
 import { CriteriaComponent } from '@app/accelengine-shared/components/criteria/criteria.component';
-import { HybrideComponent } from 'accelengine-lib';
+import { AECriteriaField, HybrideComponent } from 'accelengine-lib';
 
 // Models
 
@@ -55,7 +55,7 @@ export class ShiftMasterDetailComponent extends HybrideComponent<Shift> implemen
     this.pagination = true;
     this.criteria = true;
 
-    this.criterias = AECriteria.fromObjects([
+    this.criterias = AECriteriaField.fromObjects([
       { field: 'name', header: 'user.label_name', value: '', type: AECriteriaType.STRING },
       { field: 'startTimeWork', header: 'user.label_start_time', value: '', type: AECriteriaType.DATE },
       { field: 'endTimeWork', header: 'user.label_end_time', value: '', type: AECriteriaType.DATE },

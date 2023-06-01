@@ -38,7 +38,7 @@ public class AEUserInstaller {
 
 	public static final String MOD_NAME = "Utilisateurs";
 
-	public static final String MOD_VERSION = "0.0.1";
+	public static final String MOD_VERSION = "2.0.0";
 
 	private final ModuleInput moduleInput;
 
@@ -124,8 +124,8 @@ public class AEUserInstaller {
 
 		if (action == CHECK_TYPE.UPDATE) {
 			log.info("AEUserInstaller : action UPDATE");
-			if (MOD_VERSION.equals("1.0.0")) {
-				log.info("UPDATE version 1.0.0");
+			if (MOD_VERSION.equals("1.0.1")) {
+				log.info("UPDATE version 1.0.1");
 			}
 
 		}

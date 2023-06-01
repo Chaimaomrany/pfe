@@ -14,7 +14,7 @@ jar {
 
 dependencies {
     // Lib
-
+ implementation 'org.optaplanner:optaplanner-core:8.17.0.Final'
 }
 
 task buildModulePlanificationJar(type: Jar) {

@@ -1,0 +1,9 @@
+code;parent_code;name;url;icon;display;topMenu;modules
+50;7;Planification;/planification;fas fa-list;true;false;PLANIFICATION
+50.1;50;menu.users;/planification/user;fas fa-user-md;true;false;PLANIFICATION
+50.1.1;50;menu.shifts;/planification/shift;fas fa-sitemap;true;false;PLANIFICATION
+50.20;50;menu.teams;/planification/affectation-operateur-shift;fas fa-sitemap;true;false;PLANIFICATION
+50.30;50;"capacites
+";/planification/ability;fas fa-sitemap;true;false;PLANIFICATION
+50.50;50;"emplacements
+";/planification/placement;fas fa-sitemap;true;false;PLANIFICATION

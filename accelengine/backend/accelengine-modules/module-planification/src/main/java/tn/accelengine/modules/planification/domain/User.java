@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -60,5 +61,10 @@ public class User extends AEAuditingEntity {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = AEProperties.TABLE_JOIN_PREFIX + "printers_user")
 	private Set<Printer> printers;
-
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = AEProperties.TABLE_JOIN_PREFIX + "user_abilityy")
+	private Set<Ability> abilitiees;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "task_id")
+	private Set<Task> tasks = new HashSet<>();
 }

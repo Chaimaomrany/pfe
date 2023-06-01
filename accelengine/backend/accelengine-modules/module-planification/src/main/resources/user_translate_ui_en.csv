@@ -1,0 +1,36 @@
+language;codeModule;code;ui;message
+EN;user;user_master;true;Users list
+EN;user;user_details;true;User details
+FR;user;label_code;true;Matricule
+EN;user;label_lastname;true;Lastname
+EN;user;label_firstname;true;Firstname
+EN;user;label_phone;true;Phone
+EN;user;label_role;true;Role
+EN;user;label_select;true;Select
+EN;user;label_service;true;Service
+EN;user;label_node;true;Nodes
+EN;user;label_address;true;Address
+EN;user;label_email;true;Email
+EN;user;label_username;true;Username
+EN;user;label_password;true;Password
+EN;user;label_superior;true;Chief
+EN;user;label_fullname;true;Fullname
+EN;user;label_code;true;Code
+EN;user;label_label;true;Label
+EN;user;label_abilities;true;Abilities
+EN;user;panel_user;true;Operators
+EN;user;panel_ability;true;Abilities
+EN;user;shift_master;true;Shifts list
+EN;user;shift_details;true;Shift details
+EN;user;label_name;true;Name
+EN;user;label_start_time;true;Starts at
+EN;user;label_end_time;true;Ends at
+EN;user;operator_shift_master;true;Teams list
+EN;user;operator_shift_details;true;Team detail
+EN;user;panel_team;true;Team
+EN;user;panel_operator;true;Operators
+EN;user;label_start_period;true;Start period
+EN;user;label_end_period;true;End period
+EN;user;label_operator_list;true;Operators list
+EN;user;label_download;true;Download
+EN;user;label_size;true;Size

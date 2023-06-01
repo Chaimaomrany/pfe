@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+    <!--<environmentMode>FAST_ASSERT</environmentMode>-->
+    <scanAnnotatedClasses/>
+    <scoreDirectorFactory>
+        <scoreDrl>constraints.drl</scoreDrl>
+    </scoreDirectorFactory>
+    <solutionClass>tn.accelengine.modules.planification.domain.Planning</solutionClass>
+    <entityClass>tn.accelengine.modules.planification.domain.OperatorShift</entityClass>
+    <termination>
+        <secondsSpentLimit>90</secondsSpentLimit>
+    </termination>
+</solver>

@@ -20,6 +20,7 @@ import { AppLoginComponent } from './accelengine-verona/pages/app.login.componen
                     { path: 'std', loadChildren: () => import('@std/std.module').then(m => m.StdModule), canActivate: [AuthorizationMenuGuard] },
                     { path: 'dashboard', loadChildren: () => import('@modules/module-dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [AuthorizationMenuGuard] },
                     { path: 'start', loadChildren: () => import('@modules/module-start/start.module').then(m => m.StartModule), canActivate: [AuthorizationMenuGuard] },
+                    { path: 'planification', loadChildren: () => import('@modules/module-planification/planification.module').then(m => m.PlanificationModule), canActivate: [AuthorizationMenuGuard] },
                 ]
             },
             { path: 'login', component: AppLoginComponent },

@@ -1,5 +1,7 @@
 package tn.accelengine.modules.planification.usecase;
 
+import java.util.List;
+
 import lombok.extern.slf4j.Slf4j;
 import tn.accelengine.core.annotations.AEUseCase;
 import tn.accelengine.core.events.AEEventRunner;
@@ -7,6 +9,7 @@ import tn.accelengine.core.exceptions.AEBusinessException;
 import tn.accelengine.core.extend.AECrudMessage;
 import tn.accelengine.core.extend.AECrudUseCase;
 import tn.accelengine.modules.planification.domain.Shift;
+import tn.accelengine.modules.planification.domain.User;
 import tn.accelengine.modules.planification.port.in.ShiftInput;
 import tn.accelengine.modules.planification.port.out.ShiftOutput;
 
@@ -41,11 +44,12 @@ public class ShiftUseCase extends AECrudUseCase<Shift> implements ShiftInput {
 
 		return newdata;
 	}
-	/*
-	 * public Shift findAllbyShifts(List<Long> listUsers) {
-	 * this.authorization.assertCanRead(User.class); log.info("findAllByUsers, {}",
-	 * listUsers); Shift result = this.shiftOutput.findAllByShifts(listUsers);
-	 * return result; }
-	 * 
-	 */
+
+	public Shift findAllbyShifts(List<Long> listUsers) {
+		this.authorization.assertCanRead(User.class);
+		log.info("findAllByUsers, {}", listUsers);
+		Shift result = this.shiftOutput.findAllByShifts(listUsers);
+		return result;
+	}
+
 }

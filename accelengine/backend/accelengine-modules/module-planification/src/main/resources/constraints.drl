@@ -1,0 +1,50 @@
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScoreHolder;
+import tn.accelengine.modules.planning.domain.PlannedVisit;
+
+global HardSoftScoreHolder scoreHolder;
+
+rule "Individual Conflict"
+    when
+        OperatorShift($id : id, $shift : shift, $user : user)
+        OperatorShift(id != $id, shift != null && $shift != null && shift.id == $shift.id, individual != null && $user != null && user.id == $user.id)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -150);
+end
+
+rule "Establishment Conflict"
+    when
+        OperatorShift($id : id, $shift : shift, $placement : placement)
+        OperatorShift(id != $id, shift != null && $shift != null && shift.id == $shift.id, placement != null && $placement != null && placement.id == $placement.id)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -150);
+end
+
+rule "Gaps between visits of the same individual"
+    when
+        OperatorShift($id : id, $shift1 : shift, $user : user)
+        OperatorShift(id != $id, $shift2 : shift, $user2 : user, $shift1 != null && $shift2 != null && ($shift2.date.time - $shift1.date.time) < (4 * 1000 * 60 * 60 * 24), $user1 != null && $user2 != null && $user1.id == $user2.id )
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -100);
+end
+
+rule "Gaps between visits of the same establishment"
+    when
+        OperatorShift($id : id, $shift1 : shift, $placement1 : placement)
+        OperatorShift(id != $id, $shift2 : shift, $placement2 : placement, $shift1 != null && $shift2 != null && ($shift2.date.time - $shift1.date.time) < (4 * 1000 * 60 * 60 * 24), $placement1 != null && $placement2 != null && $placement1.id == $placement2.id )
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -100);
+end
+
+rule "Number visit per day"
+    when
+        OperatorShift($id : id, $shift1 : shift)
+        accumulate(
+            $OperatorShift : PlannedVisit(id != $id, shift != null && $shift1 != null && shift.id == $shift1.id);
+            $OperatorShiftCount : count($plannedVisit);
+            $OperatorShiftCount > 30
+        )
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -10);
+end
+
+

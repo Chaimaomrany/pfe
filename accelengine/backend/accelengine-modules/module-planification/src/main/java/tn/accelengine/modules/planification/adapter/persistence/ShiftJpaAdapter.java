@@ -1,5 +1,7 @@
 package tn.accelengine.modules.planification.adapter.persistence;
 
+import java.util.List;
+
 import tn.accelengine.core.annotations.AEPersistenceAdapter;
 import tn.accelengine.core.extend.AECrudJpaAdapter;
 import tn.accelengine.modules.planification.domain.Shift;
@@ -12,9 +14,9 @@ class ShiftJpaAdapter extends AECrudJpaAdapter<Shift, ShiftJpaRepository> implem
 		super(shiftJpaRepository);
 	}
 
-	/*
-	 * @Override public Shift findAllByShifts(List<Long> listUsers) { return
-	 * this.jpaRepository.findAllByShiftIdInAndDeletedIsFalse(listUsers); }
-	 * 
-	 */
+	@Override
+	public Shift findAllByShifts(List<Long> listUsers) {
+		return this.jpaRepository.findAllByShiftIdInAndDeletedIsFalse(listUsers);
+	}
+
 }

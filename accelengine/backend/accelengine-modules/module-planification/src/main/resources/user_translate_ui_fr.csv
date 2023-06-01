@@ -1,0 +1,36 @@
+language;codeModule;code;ui;message
+FR;user;user_master;true;Liste des utilisateurs
+FR;user;user_details;true;Détails utilisateur
+FR;user;label_code;true;Matricule
+FR;user;label_lastname;true;Nom
+FR;user;label_firstname;true;Prénom
+FR;user;label_phone;true;Téléphone
+FR;user;label_role;true;Role
+FR;user;label_select;true;Séléctionner
+FR;user;label_service;true;Service
+FR;user;label_node;true;Noeuds
+FR;user;label_address;true;Adresse
+FR;user;label_email;true;Email
+FR;user;label_username;true;Nom d'utilisateur
+FR;user;label_password;true;Mot de passe
+FR;user;label_superior;true;Supérieur hiérarchique
+FR;user;label_fullname;true;Nom & Prénom
+FR;user;label_code;true;Code
+FR;user;label_label;true;Label
+FR;user;label_abilities;true;Compétences
+FR;user;panel_user;true;Opérateurs
+FR;user;panel_ability;true;Compétences
+FR;user;shift_master;true;Liste des horaires
+FR;user;shift_details;true;Détails horaire
+FR;user;label_name;true;Nom
+FR;user;label_start_time;true;Début
+FR;user;label_end_time;true;Fin
+FR;user;operator_shift_master;true;Liste des équipes
+FR;user;operator_shift_details;true;Détails équipe
+FR;user;panel_team;true;Equipe
+FR;user;panel_operator;true;Opérateurs
+FR;user;label_start_period;true;Début
+FR;user;label_end_period;true;Fin
+FR;user;label_operator_list;true;Liste des opérateurs
+FR;user;label_download;true;Télécharger
+FR;user;label_size;true;Taille

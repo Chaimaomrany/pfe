@@ -1,0 +1,158 @@
+<!-- <div class="grid">
+    <div [ngClass]="getMasterDetailClass('MASTER')">
+        <p-card>
+            <ng-template pTemplate="header">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <app-menu-bookmark></app-menu-bookmark>
+                        <h4>
+                            <strong>{{"user.operator_shift_master" |translate}}</strong>
+                        </h4>
+                    </div>
+                    <div class="p-toolbar-group-right">
+                        <app-menu-master
+                            [criteria]="criteria"
+                            (criteriaClick)="onClickCriteria()"
+                            (addClick)="onAddClick()"
+                            (reloadClick)="onClickReload()"
+                        ></app-menu-master>
+                    </div>
+                </p-toolbar>
+            </ng-template>
+            <div class="main-body p-fluid">
+                <app-data-table
+                    [columns]="columns"
+                    [value]="datas"
+                    [selectedData]="selectedData"
+                    (onSelectRow)="onSelectRow($event)"
+                    (onDblclickRow)="onDblclickRow($event)"
+                    [paginator]="pagination && isMasterExpanded"
+                    (onPageChanged)="onPageChanged($event)"
+                    [rows]="appConfig.rows"
+                    [rowsPerPageOptions]="appConfig.rowsPerPageOptions"
+                >
+                </app-data-table>
+            </div>
+        </p-card>
+    </div>
+    <div
+        [ngClass]="getMasterDetailClass('DETAIL')"
+        *ngIf="!isMasterExpanded"
+        [@slideInOut]
+    >
+        <p-card>
+            <ng-template pTemplate="header">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <h4>
+                            <i class="fa fa-edit pr-2"></i>
+                            <strong
+                                >{{"user.operator_shift_details" |translate}}
+                                {{ selectedData?.nameShifts }}</strong
+                            >
+                        </h4>
+                    </div>
+                    <div class="p-toolbar-group-right">
+                        <app-menu-detail
+                            [types]="'e,d,c'"
+                            [isEditDisabled]="isEdit"
+                            [isDeleteDisabled]="!canDeleteCopy"
+                            [isCopyDisabled]="!canDeleteCopy"
+                            (editClick)="onEditClick()"
+                            (deleteClick)="onDeleteClick()"
+                            (copyClick)="onCopyClick()"
+                            (closeClick)="onFormCloseClick()"
+                            (maximizeClick)="onFormMaximizeClick()"
+                        >
+                        </app-menu-detail>
+                    </div>
+                </p-toolbar>
+            </ng-template>
+            <div class="main-body p-fluid">
+                <form [formGroup]="formGroup" autocomplete="off">
+                    <p-tabView>
+                        <p-tabPanel header="{{'user.panel_operator'| translate}}">
+                           
+                            <app-date-form
+                                [formGroup]="formGroup"
+                                [name]="'startDateTime'"
+                                [label]="'user.label_start_period'"
+                                [value]="f.startDateTime"
+                                [isSubmitted]="isSubmitted"
+                                [isDisabled]="!isEdit"
+                            >
+                            </app-date-form>
+                            <app-date-form
+                                [formGroup]="formGroup"
+                                [name]="'endDateTime'"
+                                [label]="'user.label_end_period'"
+                                [value]="f.endDateTime"
+                                [isSubmitted]="isSubmitted"
+                                [isDisabled]="!isEdit"
+                            >
+                            </app-date-form>
+                        </p-tabPanel>
+                        <p-tabPanel header="{{'user.panel_operator' | translate}}">
+                            <p-toolbar>
+                                <div class="p-toolbar-group-left">
+                                    <h4>
+                                        <i class="fa fa-align-justify pr-2"></i>
+                                        <strong>{{"user.label_operator_list" |translate}}</strong>
+                                    </h4>
+                                </div>
+                                <div class="p-toolbar-group-right"></div>
+                            </p-toolbar>
+                            <app-selectable-data-table
+                                [columns]="columnsOperatorShift"
+                                [value]="users"
+                                [(selectedData)]="selectedData.users"
+                                (onSelectRow)="onSelectChildRow($event)"
+                                (onDblclickRow)="onDblclickChildRow($event)"
+                                [isDisabled]="!isEdit"
+                            ></app-selectable-data-table>
+                        </p-tabPanel>
+                    </p-tabView>
+                </form>
+            </div>
+        </p-card>
+    </div>
+</div> -->
+<div class="form-popup">
+    <form [formGroup]="formGroup">
+        <app-input-form
+        [formGroup]="formGroup"
+        [name]="'startDateTime'"
+        [label]="'startDateTime'"
+        [value]="f.startDateTime"
+        [isSubmitted]="isSubmitted"
+    >
+        >
+        </app-input-form>
+        <app-input-form
+        [formGroup]="formGroup"
+        [name]="'endDateTime'"
+        [label]="'endDateTime'"
+        [value]="f.endDateTime"
+        [isSubmitted]="isSubmitted"
+    >
+        >
+        </app-input-form>
+        
+    </form>
+    <p-toolbar>
+        <div class="p-toolbar-group-left"></div>
+        <div class="p-toolbar-group-right">
+            <p-button
+                [label]="closeBtnLabel"
+                (click)="onCancel()"
+                styleClass="p-button-text"
+            ></p-button>
+            <p-button
+                [label]="saveBtnLabel"
+                (click)="onSubmit()"
+                styleClass="p-button-text"
+            >
+            </p-button>
+        </div>
+    </p-toolbar>
+</div>

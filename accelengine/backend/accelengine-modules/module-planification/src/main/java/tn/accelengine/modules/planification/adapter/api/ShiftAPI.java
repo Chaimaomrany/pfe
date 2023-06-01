@@ -1,5 +1,10 @@
 package tn.accelengine.modules.planification.adapter.api;
 
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,10 +24,10 @@ class ShiftAPI extends AECrudApi<Shift> {
 		super(shiftInput);
 		this.shiftInput = shiftInput;
 	}
-	/*
-	 * @GetMapping("/findallbyshifts/{listShifts}") public ResponseEntity<Shift>
-	 * findAllbyShifts(@PathVariable("listShifts") List<Long> listShifts) { return
-	 * ResponseEntity.ok(this.shiftInput.findAllbyShifts(listShifts)); }
-	 * 
-	 */
+
+	@GetMapping("/findallbyshifts/{listShifts}")
+	public ResponseEntity<Shift> findAllbyShifts(@PathVariable("listShifts") List<Long> listShifts) {
+		return ResponseEntity.ok(this.shiftInput.findAllbyShifts(listShifts));
+	}
+
 }
