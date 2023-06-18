@@ -67,4 +67,6 @@ public class User extends AEAuditingEntity {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "task_id")
 	private Set<Task> tasks = new HashSet<>();
+	private Set<Timeslot> unavailableTimeSlotSet;
+
 }

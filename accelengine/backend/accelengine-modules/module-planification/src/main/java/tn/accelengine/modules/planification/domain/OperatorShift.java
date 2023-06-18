@@ -1,8 +1,10 @@
 package tn.accelengine.modules.planification.domain;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -56,4 +59,7 @@ public class OperatorShift extends AEAuditingEntity {
 	@JoinTable(name = AEProperties.TABLE_JOIN_PREFIX + "operator_shift_user")
 	private Set<User> users;
 
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "working_cycle_id")
+	private List<Timeslot> timeslots;
 }

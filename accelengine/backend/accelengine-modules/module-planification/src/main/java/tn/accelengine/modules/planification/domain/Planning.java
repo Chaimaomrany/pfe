@@ -18,7 +18,7 @@ public class Planning {
 	@ProblemFactCollectionProperty
 	private List<Placement> placementList;
 	@ProblemFactCollectionProperty
-	private List<Task> taskList;
+	private List<Timeslot> timeslotList;
 	@ProblemFactCollectionProperty
 	@ValueRangeProvider(id = "employeeRange")
 	private List<User> userList;
@@ -32,12 +32,12 @@ public class Planning {
 	private Planning() {
 	}
 
-	public Planning(List<Ability> abilityList, List<Placement> placementList, List<Task> taskList, List<User> userList,
-			List<OperatorShift> operatorshiftList) {
+	public Planning(List<Ability> abilityList, List<Placement> placementList, List<Timeslot> timeslotList,
+			List<User> userList, List<OperatorShift> operatorshiftList) {
 
 		this.abilityList = abilityList;
 		this.placementList = placementList;
-		this.taskList = taskList;
+		this.timeslotList = timeslotList;
 		this.userList = userList;
 		this.operatorshiftList = operatorshiftList;
 	}
@@ -50,8 +50,8 @@ public class Planning {
 		return placementList;
 	}
 
-	public List<Task> getTaskList() {
-		return taskList;
+	public List<Timeslot> getTimeslotList() {
+		return timeslotList;
 	}
 
 	public List<User> getUserList() {

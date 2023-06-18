@@ -6,6 +6,7 @@ import tn.accelengine.modules.planification.domain.Ability;
 import tn.accelengine.modules.planification.port.out.AbilityOutput;
 
 @AEPersistenceAdapter
+@Repository
 public class AbilityJpaAdapter extends AECrudJpaAdapter<Ability, AbilityJpaRepository> implements AbilityOutput {
 
 	public AbilityJpaAdapter(AbilityJpaRepository abilityJpaRepository) {

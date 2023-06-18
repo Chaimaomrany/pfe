@@ -28,4 +28,14 @@ class OperatorShiftJpaAdapter extends AECrudJpaAdapter<OperatorShift, OperatorSh
 		return this.jpaRepository.findAllByUser(users);
 	}
 
+	// @Query("select user as getUser , timeslots as getSlots1 "
+	// + "from operate_shift os where os.date_start >= ?1 and os.date_end <= ?2
+	// group by delegate")
+	// list<[interface]> findAllByDateStartAndDateEndGroupByDelegate(Date d1,Date
+	// d2)
+
+	{
+
+	}
+
 }
